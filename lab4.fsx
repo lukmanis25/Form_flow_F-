@@ -6,13 +6,6 @@ type ValidatedUser = { Username: string; HashedPassword: string; Email: string }
 type CombinedData = { User: ValidatedUser; Preferences: ValidatedPreferences } //for zad2
 
 type RegisteredUser = { Username: string; RegistrationDate: System.DateTime; Email: string } 
-type RegisteredUserWithPreferences = { 
-    Username: string; 
-    RegistrationDate: System.DateTime; 
-    Email: string; 
-    Language: string; 
-    NotificationsEnabled: bool 
-} //for zad2
 
 type Error =
     | InvalidData
