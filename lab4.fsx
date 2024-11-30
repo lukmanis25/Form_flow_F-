@@ -131,22 +131,6 @@ let registrationProcessWithBuilder (user: User) =
         return registered3
     }
 
-//ZAD1
-//OK
-let user = { Username = "TestUser"; Password = "Password123"; Email = "testuser@example.com" }
-
-registrationProcess user
-registrationProcessWithOperator user
-registrationProcessWithBuilder user
-
-//Fail
-let userFailed = { Username = ""; Password = "Password123"; Email = "testuser@example.com" }
-
-registrationProcess userFailed
-registrationProcessWithOperator userFailed
-registrationProcessWithBuilder userFailed
-
-//ZAD2
 let registrationWithPreferences (user: User) (preferences: Preferences) =
     validateUser user
     |> Result.bind (fun validatedUser ->
@@ -168,6 +152,29 @@ let registrationWithPreferencesBuilder (user: User) (preferences: Preferences) =
         return registered3
     }
 
+
+//Łukasz Smoliński 184306
+//zad1 - zrobione
+//zad2 - zrobione
+//bonus - nie zrobiony
+
+//WYWOŁANIE PRZEPŁYWÓW
+//ZAD1
+//OK
+let user = { Username = "TestUser"; Password = "Password123"; Email = "testuser@example.com" }
+
+registrationProcess user
+registrationProcessWithOperator user
+registrationProcessWithBuilder user
+
+//Fail
+let userFailed = { Username = ""; Password = "Password123"; Email = "testuser@example.com" }
+
+registrationProcess userFailed
+registrationProcessWithOperator userFailed
+registrationProcessWithBuilder userFailed
+
+//ZAD2
 //OK
 let preferences : Preferences = { Language = "en"; NotificationsEnabled = true }
 
@@ -180,9 +187,8 @@ let preferencesFailed : Preferences = { Language = "fr"; NotificationsEnabled = 
 registrationWithPreferences user preferencesFailed
 registrationWithPreferencesBuilder user preferencesFailed
 
-
 registrationWithPreferences userFailed preferences
 registrationWithPreferencesBuilder userFailed preferences
 
-registrationWithPreferences userFailed preferences
+registrationWithPreferences userFailed preferencesFailed
 registrationWithPreferencesBuilder userFailed preferencesFailed
